@@ -2,10 +2,15 @@ import express from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
 import {fileURLToPath} from 'url'
+import { engine } from 'express-handlebars';
+
+import router from '../routes/home.router.js';
+import logger from '../middleware/logger.js';
 
 import session from  'express-session';
 import cookieParser from 'cookie-parser';
 import MongoStore from 'connect-mongo';
+
 
 const app = express();
 
@@ -17,9 +22,28 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename);
 
 export const startServer = async () => {
-  app.get("/", (req,res) => {
-    res.json({ message: "ey o key!"})
-  })
+  app.use(
+    session({
+      secret: SECRET,
+      resave: false,
+      saveUninitialized: true,
+      cookie: {
+        maxAge: 60 * 60 * 1000,
+        httpOnly: true
+      } 
+    })
+  );
+
+  app.engine("handlebars", engine({
+    defaultLayout: "main",
+    layoutDir: path.join(__dirname, "../views/layouts")
+  }));
+
+  app.set("view engine", "handlebars");
+  app.set("views", path.join(__dirname, "../views"))
+
+  app.use(logger)
+  app.use("/", router)
 
 
   app.listen(PORT, () => {
