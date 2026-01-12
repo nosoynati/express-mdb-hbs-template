@@ -1,9 +1,9 @@
 function logger(req,res,next){
   const start = Date.now();
-  console.log(`☑[START] ${req.method} ${req.originalUrl}`);
+  console.log(`[START] ${req.method} ${req.originalUrl}`);
   res.on('finish', () => {
     const ms = Date.now() - start;
-    console.log(`❌[END] ${req.method} ${req.originalUrl} | status: ${res.statusCode} | Time: ${ms}ms`);
+    console.log(`[END] ${req.method} ${req.originalUrl} | status: ${res.statusCode} | Time: ${ms}ms`);
 
   });
   next();
