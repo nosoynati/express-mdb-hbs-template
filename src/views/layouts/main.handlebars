@@ -9,9 +9,14 @@
   <link rel="icon" type="image/ico" href="/favicon.ico" />
 </head>
 
-<body>
+<body aria-roledescription="main content">
+  {{> header}}
+  <div class="container">
+    {{{body}}}
 
-  {{{body}}}
+    {{> footer}}
+  </div>
+
 </body>
 
 </html>
