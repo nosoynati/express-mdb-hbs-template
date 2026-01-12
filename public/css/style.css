@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -7,31 +9,64 @@
   --bg-color-dark: #101010;
   --bg-color-light: #f7f7f7;
   --text-dark: #1c1c1c;
+  --text-link: #3725db;
+  --text-link-hover: #6a18b6;
   --text-light: #d4d4d4;
   --text-muted: #8b8b8b;
+  --viewport-h: 100vh;
 }
 @font-face {
-  font-family: 'Inter Variable';
+  font-family: "Inter Variable";
   font-style: normal;
   font-display: swap;
   font-weight: 100 900;
-  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2) format('woff2-variations');
-  unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/inter:vf@latest/latin-wght-normal.woff2)
+    format("woff2-variations");
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329,
+    U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-html, body {
+html,
+body {
   font-family: "Inter Variable", sans-serif;
-  background-color: red;
+  background-color: var(--bg-color-light);
+  color: var(--text-dark);
 }
-section.container {
+body {
+  height: var(--viewport-h);
+  width: 100%;
+  /* overflow: hidden; */
+}
+ul {
+  list-style-type: none;
+}
+.navigation ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+a {
+  color: var(--text-link);
+  text-decoration: none;
+}
+a:hover,
+a:visited {
+  color: var(--text-link-hover);
+}
+li > a {
+  margin-right: 10px;
+}
+
+.container {
   padding: 15px;
-  margin: 5px;
+  margin: 2px;
 }
 .footer {
-  padding: 2rem;
-  background-color: greenyellow;
+  position: relative;
 }
 .navigation {
-  margin: auto;
+  padding: 10px 15px;
+  margin: 2px auto;
   border-bottom: 1px solid black;
 }
