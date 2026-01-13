@@ -62,6 +62,10 @@ li > a {
   padding: 15px;
   margin: 2px;
 }
+.container.main {
+  display: flex;
+  flex-wrap: wrap;
+}
 .footer {
   position: relative;
 }
@@ -69,4 +73,11 @@ li > a {
   padding: 10px 15px;
   margin: 2px auto;
   border-bottom: 1px solid black;
+}
+.container.list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex: 1 0 100%;
+  gap: 16px;
 }
