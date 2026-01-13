@@ -1,0 +1,20 @@
+  <h1>List page</h1>
+<div class="container list">
+
+  {{#each data}}
+  <article class="items">
+    <div class="item-title">
+      <h1>{{title}}</h1>
+    </div>
+    <div class="item-iamge">
+      <img src={{img}} alt="img-" {{title}} />
+    </div>
+    <div class="item-description">
+      <p>{{description}}</p>
+    </div>
+    <div><a href="#">{{tag}}</a></div>
+  </article>
+
+
+  {{/each}}
+</div>
