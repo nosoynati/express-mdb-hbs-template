@@ -1,5 +1,4 @@
 import { Router } from "express";
-import getData from '../utils/getdata.js';
 import { home, itemList} from '../controller/main.controller.js';
 
 const router = Router();
